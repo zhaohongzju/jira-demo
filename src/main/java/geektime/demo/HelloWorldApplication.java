@@ -13,6 +13,7 @@ public class HelloWorldApplication {
 		SpringApplication.run(HelloWorldApplication.class, args);
 	}
 
+	//http://localhost:8089/hello
 	@RequestMapping("/hello")
 	public String hello() {
 		return "Hello World!";

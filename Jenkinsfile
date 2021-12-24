@@ -5,13 +5,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Start Build...'
-				bat 'mvn package -Dmaven.test.skip=true'
+                bat 'mvn package -Dmaven.test.skip=true'
             }
         }
         stage('Deploy') {
             steps {
                 echo 'Start Deploy...'
-				bat 'java -jar helloworld-0.0.1-SNAPSHOT.jar'
+                bat 'java -jar helloworld-0.0.1-SNAPSHOT.jar'
             }
         }
     }

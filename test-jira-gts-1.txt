@@ -1,2 +1,3 @@
 GTS-2: test-jira-gts-1.txt
 GTS-1: test-jira-gts-1.txt 11
+GTS-1: test-jira-gts-1.txt 12

@@ -9,6 +9,3 @@ Feature: the version and hello can be retrieved
     When the client calls /hello
     Then the client receives status code is 200
     And the client receives message "Hello World"
-
-
-

@@ -1,1 +1,0 @@
-test-jira-gts-2.txt

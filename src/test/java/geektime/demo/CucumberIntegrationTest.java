@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(plugin = {"pretty", "html:target/cucumber.html"}, features = "src/test/resources")
+//@CucumberOptions(plugin = {"pretty", "html:target/cucumber.html"}, features = "src/test/resources")
+@CucumberOptions( plugin = {"json:target/cucumber.json"}, features = "src/test/resources")
 public class CucumberIntegrationTest {
 }

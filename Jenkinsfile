@@ -27,7 +27,7 @@ pipeline {
             post {
                always {
                    echo 'Notify: jiraSendDeploymentInfo...'
-                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'testing', site: 'statestreet-cloud-sandbox-235.atlassian.net'
+                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'staging', site: 'statestreet-cloud-sandbox-235.atlassian.net'
                }
             }
         }

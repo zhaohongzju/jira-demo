@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Start Deploy...'
-                bat 'java -jar target/helloworld-0.0.1-SNAPSHOT.jar' &
+                bat 'java -jar target/helloworld-0.0.1-SNAPSHOT.jar &'
                 bat 'timeout 10'
             }
             post {

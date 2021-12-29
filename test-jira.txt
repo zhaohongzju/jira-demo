@@ -1,4 +1,0 @@
-File: C:\Users\hp e\.jenkins\workspace\Jenkins-Jira-Demo-Job-XRay\target\cucumber.json
-Starting to import results from cucumber.json
-ERROR: Step ‘Xray: Results Import Task’ failed: Unable to confirm Result of the upload..... Upload Failed! Status:400 Response:{"error":"Result is not valid Xray Format"}
-Finished: FAILURE

@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Clean...'
-                bat 'schtasks /delete /f /tn jira-demo  1 > null 2 > null'
+                bat 'schtasks /delete /f /tn jira-demo'
 
                 echo 'Start Deploy...'
                 bat 'schtasks /create /tn jira-demo /tr "java -jar D:/Github/jira-demo_new/target/helloworld-0.0.1-SNAPSHOT.jar" /sc once /st 00:00:00 /sd 2021/01/01'

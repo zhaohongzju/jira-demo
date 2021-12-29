@@ -12,7 +12,7 @@ pipeline {
                    echo 'Notify: jiraSendBuildInfo...'
                    jiraSendBuildInfo branch: '', site: 'statestreet-cloud-sandbox-235.atlassian.net'
                    echo 'Notify: jiraSendDeploymentInfo in Build step...'
-                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'development', issueKeys: [''], serviceIds: [''], site: 'statestreet-cloud-sandbox-235.atlassian.net', state: 'successful'
+                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'development', issueKeys: ['GTS-5'], site: 'statestreet-cloud-sandbox-235.atlassian.net', state: 'successful'
                }
             }
         }

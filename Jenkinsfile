@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Start Build...'
-                bat 'mvn package -Dmaven.test.skip=true'
+                bat 'mvn clean package -Dmaven.test.skip=true'
             }
             post {
                success {
@@ -17,8 +17,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Clean...'
-                bat 'curl -X POST localhost:8089/actuator/shutdown'
-                bat 'schtasks /delete /f /tn jira-demo'
+                bat returnStatus: true, script: 'schtasks /delete /f /tn jira-demo'
+                bat returnStatus: true, script: 'curl -X POST localhost:8089/actuator/shutdown'
 
                 echo 'Start Deploy...'
                 bat 'schtasks /create /tn jira-demo /tr "java -jar D:/Github/jira-demo_new/target/helloworld-0.0.1-SNAPSHOT.jar" /sc once /st 00:00:00 /sd 2021/01/01'
@@ -27,7 +27,7 @@ pipeline {
             post {
                always {
                    echo 'Notify: jiraSendDeploymentInfo...'
-                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'testing', site: 'statestreet-cloud-sandbox-235.atlassian.net'
+                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'development', site: 'statestreet-cloud-sandbox-235.atlassian.net'
                }
             }
         }

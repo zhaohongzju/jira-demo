@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean') {
-            steps {
-                echo 'Start Clean...'
-                bat 'curl -X POST localhost:8089/actuator/shutdown'
-            }
-        }
         stage('Build') {
             steps {
                 echo 'Start Build...'
@@ -22,7 +16,12 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                echo 'Clean...'
+                bat 'curl -X POST localhost:8089/actuator/shutdown'
+                bat 'schtasks /delete /f /tn jira-demo'
+
                 echo 'Start Deploy...'
+                bat 'schtasks /create /tn jira-demo /tr "java -jar D:/Github/jira-demo_new/target/helloworld-0.0.1-SNAPSHOT.jar" /sc once /st 00:00:00 /sd 2021/01/01'
                 bat 'schtasks /run /tn jira-demo'
             }
             post {

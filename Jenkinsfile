@@ -17,7 +17,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Clean...'
-                bat 'curl -X POST localhost:8089/actuator/shutdown 1 > null 2 > null'
                 bat 'schtasks /delete /f /tn jira-demo  1 > null 2 > null'
 
                 echo 'Start Deploy...'

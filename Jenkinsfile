@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Start Build...'
-                bat 'mvn package -Dmaven.test.skip=true'
+                bat 'mvn clean package -Dmaven.test.skip=true'
             }
             post {
                success {

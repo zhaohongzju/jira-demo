@@ -18,7 +18,6 @@ pipeline {
             steps {
                 echo 'Start Deploy...'
                 bat 'start /b java -jar target/helloworld-0.0.1-SNAPSHOT.jar'
-                bat 'timeout 5'
             }
             post {
                success {

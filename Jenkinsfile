@@ -17,13 +17,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Start Deploy...'
-                bat 'java -jar target/helloworld-0.0.1-SNAPSHOT.jar' &
-                bat 'timeout 10'
+                bat 'start /b java -jar target/helloworld-0.0.1-SNAPSHOT.jar'
             }
             post {
-               success {
+               always {
                    echo 'Notify: jiraSendDeploymentInfo...'
-                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'development', issueKeys: ['GTS-4;GTS-5'], site: 'statestreet-cloud-sandbox-235.atlassian.net', state: 'successful'
+                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'development', site: 'statestreet-cloud-sandbox-235.atlassian.net'
                }
             }
         }

@@ -1,4 +1,4 @@
-@GTS-12
+@GTS-14
 @REQ_GTS-5
 Feature: Mach Curate
 

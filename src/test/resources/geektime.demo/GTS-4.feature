@@ -1,4 +1,4 @@
-@GTS-12
+@GTS-14
 @REQ_GTS-4
 Feature: Calgo Curate
 

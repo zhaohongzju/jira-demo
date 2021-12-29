@@ -17,6 +17,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Start Deploy...'
+                bat 'curl -X POST localhost:8089/actuator/shutdown'
+                bat 'timeout 1'
                 bat 'schtasks /run /tn jira-demo'
             }
             post {

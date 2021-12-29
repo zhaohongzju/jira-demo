@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Start Deploy...'
-                bat 'start /b java -jar target/helloworld-0.0.1-SNAPSHOT.jar'
+                bat 'schtasks /run /tn jira-demo'
             }
             post {
                always {

@@ -2,6 +2,12 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean') {
+            steps {
+                echo 'Start Clean...'
+                bat 'curl -X POST localhost:8089/actuator/shutdown'
+            }
+        }
         stage('Build') {
             steps {
                 echo 'Start Build...'

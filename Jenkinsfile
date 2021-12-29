@@ -17,12 +17,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Start Deploy...'
-                bat 'start /b java -jar target/helloworld-0.0.1-SNAPSHOT.jar'
+                bat 'schtasks /run /tn jira-demo'
             }
             post {
                always {
                    echo 'Notify: jiraSendDeploymentInfo...'
-                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'uat', site: 'statestreet-cloud-sandbox-235.atlassian.net'
+                   jiraSendDeploymentInfo environmentId: 'Win8-Laptop', environmentName: 'Win8-Laptop', environmentType: 'testing', site: 'statestreet-cloud-sandbox-235.atlassian.net'
                }
             }
         }
